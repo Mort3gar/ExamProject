@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Products {% endblock %}
+{% block header %}
+  <h1>Products</h1>
+{% endblock %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Barcode</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Package weight</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.barcode }}</td>
+          <td>{{ product.code }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.packageWeight }}</td>
+          <td>{{ product.price }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" onclick="window.location.href='{{ url_for( 'home_page' ) }}';">Back</button>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

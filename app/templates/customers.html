@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Customers {% endblock %}
+{% block header %}
+  <h1>Customers</h1>
+{% endblock %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Card ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+        <tr>
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.cardID }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" onclick="window.location.href='{{ url_for( 'home_page' ) }}';">Back</button>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}New customer{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post">
+    <div class="name">
+      <label for="customerName">Customer name</label>
+      <input name="customerName" id="customerName" required>
+    </div>
+    <div class="card">
+      <label for="cardId">Card ID</label>
+      <input type="number" name="cardId" id="cardId" required minlength="4" maxlength="4" min="1000" max="9999">
+    </div>
+    <input type="submit" value="Add">
+  </form>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+{% endblock %}

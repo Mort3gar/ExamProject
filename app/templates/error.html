@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Error occurred{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <h4>{{ message }}</h4>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'home_page' ) }}';">Back</button>
+  </div>
+{% endblock %}

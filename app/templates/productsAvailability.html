@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Products availability{% endblock %}
+{% block header %}
+  <h1>Products availability</h1>
+{% endblock %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Product ID</th>
+        <th>Current amount</th>
+        <th>Deadline Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.productID }}</td>
+          <td>{{ product.curAmount }}</td>
+          <td>{{ product.deadlineDate }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" onclick="window.location.href='{{ url_for( 'home_page' ) }}';">Back</button>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

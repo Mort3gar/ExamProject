@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}New Product{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post">
+    <div class="barcode">
+      <label for="productBarcode">Product Barcode</label>
+      <input type="number" name="productBarcode" id="productBarcode" required minlength="13" maxlength="13">
+    </div>
+    <div class="code">
+      <label for="productCode">Product Code</label>
+      <input type="number" name="productCode" id="productCode" required minlength="2" maxlength="2" min="1">
+    </div>
+    <div class="name">
+      <label for="productName">Product Name</label>
+      <input name="productName" id="productName" required>
+    </div>
+    <div class="packageWeight">
+      <label for="packageWeight">Package Weight</label>
+      <input type="number" name="packageWeight" id="packageWeight" required min="1">
+    </div>
+    <div class="type">
+      <label for="productType">Product type</label>
+      <select name="productType" id="productType">
+        <option value="piece" selected>Piece product</option>
+        <option value="weight">Weight product</option>
+      </select>
+    </div>
+    <div class="price">
+      <label for="productPrice">Product Price</label>
+      <input type="number" name="productPrice" id="productPrice" required min="1">
+    </div>
+    <input type="submit" value="Add">
+  </form>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+{% endblock %}

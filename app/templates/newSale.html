@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}New Product{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post">
+    <div class="customer">
+      <label for="customerId">Customer</label>
+      <select name="customerId" id="customerId" required>
+        {% for customer in customers %}
+          <option value="{{ customer.id }}">{{ customer.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="product">
+      <label for="productId">Product</label>
+      <select name="productId" id="productId" required>
+        {% for product in products %}
+          <option value="{{ product.id }}">{{ product.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="amount">
+      <label for="amount">Amount</label>
+      <input type="number" name="amount" id="amount" min="1" required>
+    </div>
+    <div class="shop">
+      <label for="shopId">Shop</label>
+      <select name="shopId" id="shopId" required>
+        {% for shop in shops %}
+          <option value="{{ shop.id }}">{{ shop.address }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <input type="submit" value="Add">
+  </form>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+{% endblock %}

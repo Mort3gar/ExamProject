@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Sales {% endblock %}
+{% block header %}
+  <h1>Sales</h1>
+{% endblock %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Customer ID</th>
+        <th>Product ID</th>
+        <th>Amount</th>
+        <th>Shop ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for sale in sales %}
+        <tr>
+          <td>{{ sale.id }}</td>
+          <td>{{ sale.customerId }}</td>
+          <td>{{ sale.productId }}</td>
+          <td>{{ sale.amount }}</td>
+          <td>{{ sale.shopId }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" onclick="window.location.href='{{ url_for( 'home_page' ) }}';">Back</button>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

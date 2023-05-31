@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}New Shop{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post">
+    <div class="name">
+      <label for="shopAddress">Shop Address</label>
+      <input name="shopAddress" id="shopAddress" required>
+    </div>
+    <input type="submit" value="Add">
+  </form>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+{% endblock %}

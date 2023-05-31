@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Home page{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'newProduct_page' ) }}';">New product</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'newShop_page' ) }}';">New shop</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'newCustomer_page' ) }}';">New customer</button>
+  </div>
+<div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'newSupply_page' ) }}';">New supply</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'newSale_page' ) }}';">New sale</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'products_page' ) }}';">Show products</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'productsAvailability_page' ) }}';">Show products availability</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'customers_page' ) }}';">Show customers</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'shops_page' ) }}';">Show shops</button>
+  </div>
+  <div class="button">
+    <button type="button" onclick="window.location.href='{{ url_for( 'sales_page' ) }}';">Show sales</button>
+  </div>
+
+{% endblock %}
